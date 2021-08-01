@@ -70,6 +70,6 @@
     "validate": "npm ls",
     "watch": "webpack --config webpack.config.js --watch --mode development"
   },
-  "main": "./index.js",
+  "main": "./lib-jitsi-meet.min.js",
   "license": "Apache-2.0"
 }

@@ -9,7 +9,7 @@ module.exports = [
         },
         output: Object.assign({}, config.output, {
             library: 'JitsiMeetJS',
-            libraryTarget: 'umd'
+            libraryTarget: 'commonjs-module'
         })
     }),
     {
