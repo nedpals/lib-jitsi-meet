@@ -1,6 +1,7 @@
 /* global __dirname */
 
 const process = require('process');
+const { ProvidePlugin } = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const analyzeBundle = process.argv.indexOf('--analyze-bundle') !== -1;
@@ -82,14 +83,18 @@ module.exports = {
     },
     performance: {
         hints: minimize ? 'error' : false,
-        maxAssetSize: 750 * 1024,
-        maxEntrypointSize: 750 * 1024
+        maxAssetSize: 800 * 1024,
+        maxEntrypointSize: 800 * 1024
     },
     plugins: [
         analyzeBundle
             && new BundleAnalyzerPlugin({
                 analyzerMode: 'disabled',
                 generateStatsFile: true
-            })
+            }),
+        new ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
     ].filter(Boolean)
 };
